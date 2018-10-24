@@ -3,10 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src ='/socket.io/socket.io.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   </head>
   <body>
     <p>Welcome to Socket App</p>
-    <script src ='/socket.io/socket.io.js'></script>
-    <script src="/js/index.js"></script>
+    <div class="container">
+      <p>All messages</p>
+      <div class="message-list">
+        <ul id='list'></ul>
+      </div>
+    </div>
+    <form class="form-message">
+      <div class="container">
+        <div class="form-group">
+          <label for="message">Mesage</label>
+          <textarea class="form-control" id="message" rows="3" style="width:500px" placeholder="your message goes here...."></textarea>
+        </div>
+        <button type="submit" name="button" class="btn btn-primary">Send</button>
+      </div>
+    </form>
   </body>
 </html>
