@@ -22,6 +22,20 @@ io.on('connection',(socket) => {
   //   createdAt: now
   // });
 
+  //on new User Joined the server
+  socket.emit('newMessageEvent',{
+    from:'Admin',
+    text:'Welcome to Chat app',
+    createdAt:new Date().getTime()
+  });
+
+  //broadcast to other user that new user joined the server
+  socket.broadcast.emit('newMessageEvent',{
+    from:'Admin',
+    text:'new User Joined',
+    createdAt:new Date().getTime()
+  });
+
   //on Recieving new Message from client
   socket.on('createMessageEvent',(message) => {
     io.emit('newMessageEvent',{
@@ -29,7 +43,6 @@ io.on('connection',(socket) => {
       text:message.text,
       createdAt:new Date().getTime()
     });
-    console.log('createMessageEvent',message);
   });
 
   socket.on('disconnect',() => {
